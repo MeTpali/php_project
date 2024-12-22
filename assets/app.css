@@ -1,0 +1,308 @@
+/* Light theme styles */
+/* Стиль для светлой темы: карточки имеют белый фон */
+html[data-theme="light"] .card {
+    background: #ffffff;
+}
+
+/* Layout */
+/* Общие стили для страницы: центрирование контента, фон */
+body {
+    display: flex;
+    /* Используем Flexbox для расположения элементов */
+    align-items: center;
+    /* Центрирование по вертикали */
+    justify-content: center;
+    /* Центрирование по горизонтали */
+    flex-direction: column;
+    /* Размещение элементов в колонку */
+    min-height: 100vh;
+    /* Минимальная высота - весь экран */
+    background: #f5f5f5;
+    /* Светло-серый фон */
+}
+
+/* Card styling */
+/* Стиль для карточек */
+.card {
+    box-shadow:
+        /* Создаём многоуровневую тень для глубины */
+        0 2px 4px rgba(0, 0, 0, 0.02),
+        0 4px 8px rgba(0, 0, 0, 0.03),
+        0 8px 16px rgba(0, 0, 0, 0.04),
+        0 16px 32px rgba(0, 0, 0, 0.05);
+    background: #141e26;
+    /* Тёмно-серый фон карточки */
+    border-radius: 1rem;
+    /* Скруглённые углы */
+    padding: 3rem;
+    /* Внутренние отступы */
+    transition: all 0.3s ease-in-out;
+    /* Плавный переход стиля */
+    animation: cardAppear 0.5s ease-out;
+    /* Анимация появления */
+}
+
+/* Анимация появления карточки */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        /* Начинаем с невидимой карточки */
+        transform: translateY(20px);
+        /* Смещена вниз */
+    }
+
+    to {
+        opacity: 1;
+        /* Карточка становится видимой */
+        transform: translateY(0);
+        /* Смещение исчезает */
+    }
+}
+
+/* Ховер-эффект карточки */
+.card:hover {
+    transform: translateY(-4px);
+    /* Карточка поднимается */
+    box-shadow:
+        /* Тень становится более заметной */
+        0 4px 8px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(0, 0, 0, 0.06),
+        0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Form styling */
+/* Стили для формы */
+form {
+    min-width: 500px;
+    /* Минимальная ширина формы */
+    max-width: 700px;
+    /* Максимальная ширина формы */
+    margin: 0 auto;
+    /* Центрирование формы */
+    animation: fadeIn 0.5s ease-in;
+    /* Анимация появления формы */
+}
+
+/* Анимация появления формы */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    /* Форма невидима */
+    to {
+        opacity: 1;
+    }
+
+    /* Форма становится видимой */
+}
+
+/* Button styling */
+/* Стили для кнопок */
+button {
+    background-color: #2ecc71;
+    /* Зелёный фон кнопки */
+    border-color: #27ae60;
+    /* Цвет рамки */
+    transition: all 0.3s ease;
+    /* Плавный переход стиля */
+    position: relative;
+    /* Для создания эффекта "волны" */
+    overflow: hidden;
+    /* Скрываем излишки содержимого */
+}
+
+/* Ховер-эффект для кнопки */
+button:hover {
+    background-color: #27ae60;
+    /* Тёмно-зелёный фон */
+    border-color: #219a52;
+    /* Тёмный цвет рамки */
+    transform: translateY(-2px);
+    /* Кнопка поднимается */
+}
+
+/* Нажатие кнопки */
+button:active {
+    transform: translateY(1px);
+    /* Кнопка опускается */
+}
+
+/* Волновой эффект при нажатии */
+button::after {
+    content: '';
+    /* Пустое содержимое */
+    position: absolute;
+    /* Абсолютное позиционирование */
+    top: 50%;
+    /* Центр по вертикали */
+    left: 50%;
+    /* Центр по горизонтали */
+    width: 0;
+    /* Начальная ширина эффекта */
+    height: 0;
+    /* Начальная высота эффекта */
+    background: rgba(255, 255, 255, 0.2);
+    /* Полупрозрачный белый */
+    border-radius: 50%;
+    /* Форма круга */
+    transform: translate(-50%, -50%);
+    /* Центрирование относительно точки нажатия */
+    transition: width 0.3s ease, height 0.3s ease;
+    /* Плавное увеличение эффекта */
+}
+
+button:active::after {
+    width: 200px;
+    /* Финальная ширина эффекта */
+    height: 200px;
+    /* Финальная высота эффекта */
+}
+
+/* Avatar styling */
+/* Стили для аватаров */
+.avatar {
+    width: 300px;
+    /* Ширина аватара */
+    height: 300px;
+    /* Высота аватара */
+    display: block;
+    /* Блочный элемент */
+    object-fit: cover;
+    /* Сохранение пропорций изображения */
+    border-radius: 50%;
+    /* Круглая форма */
+    border: 4px solid #ffffff;
+    /* Белая рамка */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Тень */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Плавный переход */
+    animation: avatarAppear 0.8s ease-out;
+    /* Анимация появления */
+}
+
+/* Анимация появления аватара */
+@keyframes avatarAppear {
+    from {
+        transform: scale(0.5) rotate(-180deg);
+        /* Уменьшение размера и вращение */
+        opacity: 0;
+        /* Невидимый аватар */
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+        /* Нормальный размер и ориентация */
+        opacity: 1;
+        /* Видимый аватар */
+    }
+}
+
+/* Ховер-эффект для аватара */
+.avatar:hover {
+    transform: scale(1.05) rotate(5deg);
+    /* Лёгкое увеличение и вращение */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* Увеличение тени */
+}
+
+/* Home page layout */
+/* Макет для главной страницы */
+.home {
+    display: flex;
+    /* Используем Flexbox */
+    flex-direction: column;
+    /* Элементы располагаются в колонку */
+    align-items: center;
+    /* Центрирование элементов */
+    gap: 2rem;
+    /* Расстояние между элементами */
+    padding: 6rem 2rem;
+    /* Внешние отступы */
+    width: 100%;
+    /* Ширина блока */
+    max-width: 1200px;
+    /* Максимальная ширина блока */
+    margin: 0 auto;
+    /* Центрирование по горизонтали */
+    animation: slideUp 0.6s ease-out;
+    /* Анимация появления */
+}
+
+/* Анимация появления контента страницы */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        /* Смещение вниз */
+        opacity: 0;
+        /* Невидимый контент */
+    }
+
+    to {
+        transform: translateY(0);
+        /* Нормальное положение */
+        opacity: 1;
+        /* Видимый контент */
+    }
+}
+
+/* Notice/Alert styles */
+/* Стили уведомлений */
+.notice {
+    padding: 1rem 1.5rem;
+    /* Внутренние отступы */
+    border-radius: 0.5rem;
+    /* Скругление углов */
+    margin: 1.5rem 0;
+    /* Внешние отступы */
+    font-weight: 500;
+    /* Жирный текст */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Плавный переход */
+    animation: noticeSlide 0.4s ease-out;
+    /* Анимация появления */
+}
+
+/* Анимация появления уведомления */
+@keyframes noticeSlide {
+    from {
+        transform: translateX(-100%);
+        /* Уведомление за экраном */
+        opacity: 0;
+        /* Невидимое уведомление */
+    }
+
+    to {
+        transform: translateX(0);
+        /* Нормальное положение */
+        opacity: 1;
+        /* Видимое уведомление */
+    }
+}
+
+/* Стили для ошибок */
+.notice.error {
+    border: 2px solid #dc3545;
+    /* Красная рамка */
+    background: #fde8e8;
+    /* Светло-красный фон */
+    color: #dc3545;
+    /* Красный текст */
+}
+
+/* Стили для успеха */
+.notice.success {
+    border: 2px solid #2ecc71;
+    /* Зелёная рамка */
+    background: #e8f5e9;
+    /* Светло-зелёный фон */
+    color: #2ecc71;
+    /* Зелёный текст */
+}
+
+/* Ховер-эффект уведомлений */
+.notice:hover {
+    transform: translateY(-2px) scale(1.01);
+    /* Поднятие и небольшое увеличение */
+}
